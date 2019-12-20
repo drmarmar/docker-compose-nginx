@@ -1,0 +1,31 @@
+version: "3"
+services:
+  nginx:
+    image: nginx:latest
+    container_name: pnginx
+    volumes:
+      - ./nginx/:/etc/nginx/
+    ports:
+      - 80:80
+      - 443:443
+    depends_on:
+      - ackee
+  ackee:
+    image: electerious/ackee
+    container_name: ackee
+    restart: always
+    #    ports:
+    #      - "3000:3000"
+    environment:
+      - WAIT_HOSTS=mongo:27017
+      - ACKEE_MONGODB=mongodb://mongo:27017/ackee
+    env_file:
+      - .env
+    depends_on:
+      - mongo
+  mongo:
+    image: mongo
+    container_name: mongo
+    restart: always
+    volumes:
+      - ./data:/data/db

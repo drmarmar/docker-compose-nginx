@@ -10,6 +10,8 @@
 
 Self-Signed provides a working example of how to create a self-signed certificate for NGINX.
 
+https://nickolaskraus.org/articles/how-to-create-a-self-signed-certificate-for-nginx-on-macos/
+
 ## Getting Started
 
 To get started with Self-Signed, simply pull the Docker image:
