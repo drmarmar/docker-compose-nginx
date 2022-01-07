@@ -13,13 +13,6 @@ sudo openssl req \
   -out nginx/self-signed.crt
 
 # create a Diffie-Hellman key pair
-sudo openssl dhparam -out nginx/dhparam.pem 128
+sudo openssl dhparam -out nginx/dhparam.pem 2048
 
-# add certificate to the trusted root store
-sudo security add-trusted-cert \
-  -d -r trustRoot \
-  -k /Library/Keychains/System.keychain nginx/self-signed.crt
 
-# to remove
-
-# sudo security delete-certificate -c "<name of existing certificate>"
